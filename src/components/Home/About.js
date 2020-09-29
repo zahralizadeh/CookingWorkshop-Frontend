@@ -23,10 +23,7 @@ class About extends Component {
               {/* <!--Hero form --> */}
               <form action="#" className="search-box">
                 <div className="input-form">
-                  <input
-                    type="text"
-                    placeholder="Search a Recipe or ingredient .."
-                  />
+                  <input type="text" placeholder="Search a Recipe ..." />
                 </div>
                 <div className="search-form">
                   <button>GO</button>

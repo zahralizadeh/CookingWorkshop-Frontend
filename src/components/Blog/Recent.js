@@ -1,6 +1,16 @@
 import React, { Component } from "react";
 
 class Recent extends Component {
+  state = {
+    data: [],
+  };
+  componentDidMount() {
+    let url = "http://localhost:8004/api/v1/recipe/recent_post/";
+    fetch(url)
+      .then((res) => res.json())
+      .then((resp) => this.setState({ data: resp.results }))
+      .catch((error) => console.log(error));
+  }
   render() {
     return (
       <aside className="single_sidebar_widget popular_post_widget">
