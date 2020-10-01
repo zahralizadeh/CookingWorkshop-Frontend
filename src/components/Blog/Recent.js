@@ -5,7 +5,7 @@ class Recent extends Component {
     data: [],
   };
   componentDidMount() {
-    let url = "http://localhost:8004/api/v1/recipe/recent_post/";
+    let url = "http://localhost:8004/api/v1/recipe/recent_posts/";
     fetch(url)
       .then((res) => res.json())
       .then((resp) => this.setState({ data: resp.results }))

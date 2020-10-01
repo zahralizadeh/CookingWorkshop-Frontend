@@ -11,8 +11,8 @@ class Search extends Component {
                 type="text"
                 className="form-control"
                 placeholder="Search Keyword"
-                onFocus="this.placeholder = ''"
-                onBlur="this.placeholder = 'Search Keyword'"
+                // onFocus="this.placeholder = ''"
+                // onBlur="this.placeholder = 'Search Keyword'"
               />
               <div className="input-group-append">
                 <button className="btns" type="button">
