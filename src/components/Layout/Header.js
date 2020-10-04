@@ -2,49 +2,72 @@ import React, { Component } from "react";
 import { Row, Col } from "reactstrap";
 import Menu from "../../Menu";
 class Header extends Component {
-  npm;
+  state = {
+    binders: [],
+  };
+  componentDidMount() {
+    let url = "http://localhost:8004/api/v1/recipe/binders/";
+    fetch(url)
+      .then((resp) => resp.json())
+      .then((res) => {
+        this.setState({ binders: res.results });
+      })
+      .catch((error) => console.log(error));
+  }
   render() {
     return (
       <header>
         <div className="header-area header-transparent">
           <div className="main-header  header-sticky">
             <div className="container-fluid">
+              {/* <div className="row align-items-center"> */}
               <Row className="row align-items-center">
                 {/* LOGO */}
-                <div className="col-xl-2 col-lg-2 col-md-1">
+                <Col xl="1" lg="1" md="1">
                   <div className="logo">
                     <a href="index.html">
-                      <img src="../img/logo/logo.png" alt="logo" />
+                      <img src="../img/logo/logo11.png" alt="logo" />
                     </a>
                   </div>
-                </div>
+                </Col>
                 {/* end LOGO */}
-                <Col xl="10" lg="10" md="10">
+                <Col xl="11" lg="11" md="11">
                   <div className="menu-main d-flex align-items-center justify-content-end">
                     {/* <!-- Main-menu --> */}
                     <div className="main-menu f-right d-none d-lg-block">
                       <nav>
                         <ul id="navigation">
-                          {Menu.map((item, index) => {
+                          {/* Categories menu */}
+                          {this.state.binders.map((item, index) => {
                             return (
-                              <li key={index}>
-                                <a href={item.path}>{item.name}</a>
+                              <li key={"cat" + index}>
+                                <a href={item.title_en}>{item.title_en}</a>
+                                <ul
+                                  className={
+                                    item.categories.length > 20
+                                      ? "multicolumn quadruplecol"
+                                      : item.categories.length > 10
+                                      ? "multicolumn triplecol"
+                                      : "multicolumn doublecol"
+                                  }
+                                >
+                                  {item.categories.map((cat, i) => {
+                                    return (
+                                      <li key={"subcat" + i}>
+                                        <a href="blog.html">{cat.title_en}</a>
+                                      </li>
+                                    );
+                                  })}
+                                </ul>
                               </li>
                             );
                           })}
                         </ul>
                       </nav>
                     </div>
-                    {/* end Main menu */}
                   </div>
                 </Col>
-                <Col>
-                  {/* <!-- Mobile Menu --> */}
-                  <div className="mobile_menu d-block d-lg-none"></div>
-                </Col>
               </Row>
-              {/* <div className="row align-items-center"> */}
-
               {/* </div> */}
             </div>
           </div>

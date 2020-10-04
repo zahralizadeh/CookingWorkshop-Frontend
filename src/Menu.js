@@ -1,6 +1,6 @@
 const Menu = [
   { name: "Home", path: "/" },
-  { name: "Blog", path: "blog" },
-  { name: "Categories", path: "categories" },
+  { name: "All Recipes", path: "recipes" },
+  // { name: "Categories", path: "categories" },
 ];
 export default Menu;

@@ -2102,6 +2102,57 @@ hr {
   opacity: 1;
   top: 100%;
 }
+.header-area .main-header .main-menu ul ul.quadruplecol {
+  columns: 4;
+  width: 700px;
+}
+.header-area .main-header .main-menu ul ul.triplecol {
+  columns: 3;
+  width: 480px;
+}
+.header-area .main-header .main-menu ul ul.doublecol {
+  columns: 2;
+  width: 360px;
+}
+.header-area .main-header .main-menu ul ul.multicolumn {
+  position: absolute;
+
+  background: #fff;
+  right: 0;
+  top: 80%;
+  visibility: hidden;
+  opacity: 0;
+  box-shadow: 0 0 10px 3px rgba(0, 0, 0, 0.05);
+  padding: 17px 0;
+  /* columns: 2; */
+  -webkit-transition: all 0.3s ease-out 0s;
+  -moz-transition: all 0.3s ease-out 0s;
+  -ms-transition: all 0.3s ease-out 0s;
+  -o-transition: all 0.3s ease-out 0s;
+  transition: all 0.3s ease-out 0s;
+}
+.header-area .main-header .main-menu ul ul.multicolumn > li {
+  margin-left: 7px;
+  display: block;
+}
+.header-area .main-header .main-menu ul ul.multicolumn > li > a {
+  padding: 12px 10px !important;
+  font-size: 16px;
+  text-transform: capitalize;
+  margin: 0;
+}
+.header-area .main-header .main-menu ul ul.multicolumn > li > a:hover {
+  color: #ff5600;
+  background: none;
+}
+.header-area .main-menu ul ul.multicolumn > li > a:hover {
+  padding-left: 13px !important;
+}
+.header-area .main-menu ul > li:hover > ul.multicolumn {
+  visibility: visible;
+  opacity: 1;
+  top: 100%;
+}
 .header-transparent {
   position: absolute;
   top: 0;

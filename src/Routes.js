@@ -23,7 +23,7 @@ const Routes = ({ location }) => {
         <div>
           <Suspense fallback={<div>Loading...</div>}>
             <Switch location={location}>
-              <Route path="/blog" component={waitFor(Blog)} />
+              <Route path="/recipes" component={waitFor(Blog)} />
             </Switch>
           </Suspense>
         </div>
