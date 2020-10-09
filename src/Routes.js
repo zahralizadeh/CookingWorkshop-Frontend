@@ -4,8 +4,9 @@ import { withRouter, Route, Switch } from "react-router-dom";
 import Base from "./components/Layout/Base";
 import About from "./components/Home/About";
 import SampleRecipes from "./components/Home/SampleRecipes";
+import ContentWrapper from "./components/Layout/ContentWrapper";
 const waitFor = (Tag) => (props) => <Tag {...props} />;
-const Blog = lazy(() => import("./components/Blog/Blog"));
+const RecipeList = lazy(() => import("./components/Recipes/RecipeList"));
 const Routes = ({ location }) => {
   //   const currentKey = location.pathname.split("/")[1] || "/";
   if (location.pathname === "/") {
@@ -20,13 +21,13 @@ const Routes = ({ location }) => {
   } else {
     return (
       <Base>
-        <div>
+        <ContentWrapper>
           <Suspense fallback={<div>Loading...</div>}>
             <Switch location={location}>
-              <Route path="/recipes" component={waitFor(Blog)} />
+              <Route path="/recipes" component={waitFor(RecipeList)} />
             </Switch>
           </Suspense>
-        </div>
+        </ContentWrapper>
       </Base>
     );
   }
